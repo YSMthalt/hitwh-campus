@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>云游哈工大（威海） · 校园地图漫游</title>
+<link rel="icon" href="assets/img/logo.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ======= 顶部导航 ======= -->
+<header id="navbar">
+  <div class="nav-inner">
+    <a class="brand" href="#home">
+      <img src="assets/img/logo.png" alt="校徽">
+      <div class="brand-text">
+        <strong>哈尔滨工业大学（威海）</strong>
+        <span>HARBIN INSTITUTE OF TECHNOLOGY, WEIHAI</span>
+      </div>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#home" class="active">首页</a>
+      <a href="#tour">地图漫游</a>
+      <a href="#scenery">校园风光</a>
+      <a href="#about">走进校区</a>
+    </nav>
+    <div class="nav-motto">规格严格 · 功夫到家</div>
+    <button class="menu-toggle" id="menuToggle" aria-label="菜单">☰</button>
+  </div>
+</header>
+
+<!-- ======= 首页 Hero ======= -->
+<section id="home" class="hero">
+  <video id="heroVideo" autoplay muted loop playsinline poster="assets/img/poster1.jpg" src="assets/video/campus1.mp4"></video>
+  <div class="hero-mask"></div>
+  <div class="hero-content">
+    <p class="hero-sub">HARBIN INSTITUTE OF TECHNOLOGY, WEIHAI</p>
+    <h1>云游哈工大（威海）</h1>
+    <p class="hero-motto">规格严格，功夫到家</p>
+    <p class="hero-desc">山海相逢 · 湖光塔影 —— 点击地图，足不出户漫游校园</p>
+    <div class="hero-btns">
+      <a class="btn btn-primary" href="#tour">开始地图漫游</a>
+      <a class="btn btn-ghost" href="#scenery">校园风光</a>
+    </div>
+  </div>
+  <div class="hero-scroll">▼</div>
+</section>
+
+<!-- ======= 地图漫游 ======= -->
+<section id="tour" class="tour-section">
+  <div class="section-head">
+    <h2>校园地图漫游</h2>
+    <p>点击地图上的标记点，查看地点介绍与航拍视频，进入 VR 全景</p>
+  </div>
+  <div id="map-wrap">
+    <img id="campusMap" src="assets/img/campus_map.jpg" alt="校园地图">
+    <div id="map-pins"></div>
+  </div>
+</section>
+
+<!-- 地点介绍卡（底部弹起） -->
+<div id="spot-card" class="spot-card hidden">
+  <button id="spotClose" class="spot-close">✕</button>
+  <div class="spot-body">
+    <h3 id="spotName"></h3>
+    <p id="spotDesc"></p>
+    <div id="spotMedia"></div>
+    <button id="spotVR" class="btn btn-primary">进入 3D 漫游（VR 全景）</button>
+  </div>
+</div>
+
+<!-- ======= 校园风光 ======= -->
+<section id="scenery" class="scenery-section">
+  <div class="section-head">
+    <h2>校园风光</h2>
+    <p>山海之间，四季皆景</p>
+  </div>
+  <div class="gallery" id="gallery"></div>
+</section>
+
+<!-- ======= 走进校区 ======= -->
+<section id="about" class="about-section">
+  <div class="section-head">
+    <h2>走进哈工大（威海）</h2>
+    <p>规格严格，功夫到家</p>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>哈尔滨工业大学（威海）是哈尔滨工业大学"一校三区"办学格局的重要组成部分，1985 年开始建设，坐落于最适合人类居住的海滨城市——山东威海，依山傍海，毗邻金海湾与国际海水浴场。</p>
+      <p>校区与哈工大本部统一规格、统一标准、统一要求，坚持以工为主，理工结合，涵盖船舶与海洋工程、车辆工程、信息科学、材料科学、经济管理等多个学科门类。</p>
+      <p>校园内主楼巍峨、图书馆书声琅琅、体育馆活力四射，日月湖波光潋滟，是求学治学的理想之地。</p>
+      <div class="about-actions">
+        <a class="btn btn-primary" href="https://www.hitwh.edu.cn/" target="_blank" rel="noopener">访问官方网站</a>
+        <a class="btn btn-ghost" href="#tour">返回地图漫游</a>
+      </div>
+    </div>
+    <div class="about-stats">
+      <div class="stat"><strong>1985</strong><span>建校年份</span></div>
+      <div class="stat"><strong>一校三区</strong><span>哈工大办学格局</span></div>
+      <div class="stat"><strong>依山傍海</strong><span>毗邻金海湾</span></div>
+      <div class="stat"><strong>VR</strong><span>沉浸式全景</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= 页脚 ======= -->
+<footer id="footer">
+  <div class="footer-inner">
+    <img src="assets/img/logo.png" alt="校徽" class="footer-logo">
+    <div>
+      <p class="f-title">哈尔滨工业大学（威海）</p>
+      <p>地址：山东省威海市文化西路 2 号 · 邮编：264209</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ======= VR 全景查看器（全屏） ======= -->
+<div id="vr-overlay" class="vr-overlay hidden">
+  <div class="vr-topbar">
+    <button id="vrBack">← 返回地图</button>
+    <span id="vrTitle"></span>
+    <span class="vr-hint">拖动旋转 · 滚轮缩放</span>
+  </div>
+  <canvas id="vr-canvas"></canvas>
+  <div id="vr-placeholder">
+    <div class="vr-placeholder-inner">
+      <div class="vr-icon">🔭</div>
+      <p>该地点全景图拍摄中，敬请期待</p>
+      <p class="vr-sub">VR 图片拍好后放入 assets/vr/ 目录即可自动加载</p>
+    </div>
+  </div>
+</div>
+
+<!-- ======= 图片放大弹窗（图库用） ======= -->
+<div id="imgModal" class="modal hidden">
+  <div class="modal-body img-modal-body">
+    <button id="imgClose">✕</button>
+    <img id="imgModalSrc" src="" alt="">
+  </div>
+</div>
+
+<script src="js/three.min.js"></script>
+<script src="js/map.js"></script>
+<script src="js/vr.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
